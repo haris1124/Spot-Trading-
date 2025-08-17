@@ -88,7 +88,7 @@ class SignalGenerator:
                 indicators['vwap'] == direction
             ])
             confidence = agree_count / 8
-            tp1_pct = 0.012  # 1.2%
+            tp1_pct = 0.05  # 5%
             tp1 = current_price * (1 + tp1_pct)
             sl, sl_pct = self._calculate_sl_levels(df, current_price)
             risk = current_price - sl
@@ -155,4 +155,5 @@ class SignalGenerator:
             f"🎯 TP1: {signal['tp_levels'][0]:.6f} ({signal['tp1_percent']:.2f}%)\n"
             f"🛑 Stop Loss: {signal['sl']:.6f} ({signal['sl_percent']:.2f}%)\n"
             f"📊 Win Probability: {signal['win_probability']:.2f}\n"
+
         )
